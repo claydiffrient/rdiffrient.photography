@@ -8,12 +8,12 @@ module.exports = {
       twitter: `kylemathews`,
     },
   },
-plugins: [
+  plugins: [
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        path: `${__dirname}/content/blog`,
-        name: `blog`,
+        path: `${__dirname}/content/shoots`,
+        name: `shoots`,
       },
     },
     {
@@ -73,7 +73,7 @@ plugins: [
       options: {
         pathToConfigModule: `src/utils/typography`,
       },
-},
-`gatsby-plugin-netlify-cms`
+    },
+    `gatsby-plugin-netlify-cms`,
   ],
 }
