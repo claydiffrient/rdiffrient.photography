@@ -14,12 +14,46 @@ collections:
     editor:
       preview: false
     fields:
-      - { label: "Title", name: "title", widget: "string" }
-      - { label: "Description", name: "description", widget: "string" }
+      - label: "Title"
+        name: "title"
+        widget: "string"
+        hint: "Name for this shoot (D Family, Baby B, Tati Beauty Palette)"
+      - label: "Description"
+        name: "description"
+        widget: "string"
+        hint: "Any text you'd like to use to describe this shoot"
       - label: "Featured Image"
         name: "thumbnail"
         widget: "image"
-        default: "/uploads/chocolate-dogecoin.jpg"
+        hint: "The main image to show on the homepage"
+        media_library:
+          config:
+            multiple: true
+      - label: "Image 1"
+        name: "image1"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
+      - label: "Image 2"
+        name: "image2"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
+      - label: "Image 3"
+        name: "image3"
+        widget: "image"
+        required: false
+        media_library:
+          config:
+            multiple: true
+      - label: "Image 4"
+        name: "image4"
+        widget: "image"
+        required: false
         media_library:
           config:
             multiple: true
