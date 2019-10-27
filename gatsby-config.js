@@ -1,6 +1,6 @@
 module.exports = {
   siteMetadata: {
-    title: `R. Diffrient Photography`,
+    title: `R Diffrient Photography`,
     author: `Clay Diffrient`,
     description: `Photography Website of Rachael Diffrient`,
     siteUrl: `https://rdiffrient.photography/`,
@@ -72,5 +72,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-netlify-cms`,
+    "gatsby-plugin-emotion",
   ],
 }

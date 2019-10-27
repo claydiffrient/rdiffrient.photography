@@ -2,6 +2,30 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
+import styled from "@emotion/styled"
+import { css } from "@emotion/core"
+
+const Header = styled.h1`
+  @media screen and (min-width: 320px) {
+    font-size: calc(30px + 6 * ((100vw - 320px) / 680));
+}
+@media screen and (min-width: 1000px) {
+    font-size: ${scale(2).fontSize};
+}
+  ${
+    "" /* font-size: ${scale(2).fontSize};
+  line-height: ${scale(2).lineHeight};
+  max-width: ${rhythm(40)};
+  min-width: ${rhythm(15)};
+  ${"" /* @media (min-width: ${rhythm(15)}) {
+    font-size: ${scale(1.5).fontSize};
+  } */
+  } */}
+`
+
+/*
+
+  */
 
 class Layout extends React.Component {
   render() {
@@ -12,8 +36,19 @@ class Layout extends React.Component {
     if (location.pathname === rootPath) {
       header = (
         <h1
+          css={css`
+            @media screen and (min-width: 320px) {
+              font-size: ${scale(1.4).fontSize};
+            }
+            @media screen and (min-width: 1000px) {
+              font-size: ${scale(2).fontSize};
+            }
+          `}
           style={{
-            ...scale(1.5),
+            textTransform: "uppercase",
+            textAlign: "center",
+            marginLeft: `auto`,
+            marginRight: `auto`,
             marginBottom: rhythm(1.5),
             marginTop: 0,
           }}
@@ -54,9 +89,10 @@ class Layout extends React.Component {
     return (
       <div
         style={{
+          backgroundColor: "rebeccapurple",
           marginLeft: `auto`,
           marginRight: `auto`,
-          maxWidth: rhythm(24),
+          maxWidth: rhythm(48),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
         }}
       >
