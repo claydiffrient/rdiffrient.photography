@@ -2,26 +2,7 @@ import React from "react"
 import { Link } from "gatsby"
 
 import { rhythm, scale } from "../utils/typography"
-import styled from "@emotion/styled"
 import { css } from "@emotion/core"
-
-const Header = styled.h1`
-  @media screen and (min-width: 320px) {
-    font-size: calc(30px + 6 * ((100vw - 320px) / 680));
-}
-@media screen and (min-width: 1000px) {
-    font-size: ${scale(2).fontSize};
-}
-  ${
-    "" /* font-size: ${scale(2).fontSize};
-  line-height: ${scale(2).lineHeight};
-  max-width: ${rhythm(40)};
-  min-width: ${rhythm(15)};
-  ${"" /* @media (min-width: ${rhythm(15)}) {
-    font-size: ${scale(1.5).fontSize};
-  } */
-  } */}
-`
 
 /*
 
@@ -93,11 +74,20 @@ class Layout extends React.Component {
           marginRight: `auto`,
           maxWidth: rhythm(48),
           padding: `${rhythm(1.5)} ${rhythm(3 / 4)}`,
+          height: "100%",
+          display: "grid",
+          gridTemplateRows:
+            "minmax(min-content, max-content) minmax(min-content, max-content) 0.2fr",
         }}
       >
         <header>{header}</header>
         <main>{children}</main>
-        <footer>
+        <footer
+          css={css`
+            grid-row: 4 / 5;
+            align-self: end;
+          `}
+        >
           © {new Date().getFullYear()}, Built with
           {` `}
           <a href="https://www.gatsbyjs.org">Gatsby</a>
