@@ -15,9 +15,27 @@ class BlogIndex extends React.Component {
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        <StackGrid columnWidth={150}>
+        <StackGrid monitorImagesLoaded={true} columnWidth={150}>
           {shoots.map(({ node }) => (
-            <img alt="test" src={node.frontmatter.thumbnail} />
+            <img
+              alt={node.frontmatter.title}
+              key={node.fields.slug + "0"}
+              src={node.frontmatter.thumbnail}
+            />
+          ))}
+          {shoots.reverse().map(({ node }) => (
+            <img
+              alt={node.frontmatter.title}
+              key={node.fields.slug + "1"}
+              src={node.frontmatter.thumbnail}
+            />
+          ))}
+          {shoots.map(({ node }) => (
+            <img
+              alt={node.frontmatter.title}
+              key={node.fields.slug + "2"}
+              src={node.frontmatter.thumbnail}
+            />
           ))}
         </StackGrid>
       </Layout>
