@@ -18,46 +18,39 @@ collections:
         name: "title"
         widget: "string"
         hint: "Name for this shoot (D Family, Baby B, Tati Beauty Palette)"
-      - label: "Description"
-        name: "description"
-        widget: "string"
-        hint: "Any text you'd like to use to describe this shoot"
       - label: "Date"
         name: "date"
         widget: "datetime"
         hint: "Date added to the site or date of the shoot"
+      - label: "Category"
+        name: "category"
+        widget: "select"
+        multiple: true
+        options: ["Family", "Announcement"]
       - label: "Featured Image"
-        name: "thumbnail"
-        widget: "image"
+        name: "featured_image"
+        widget: "object"
+        fields:
+          - { name: src, label: Image, widget: image }
+          - {
+              name: alt,
+              label: Alt text,
+              widget: string,
+              hint: Description of the image,
+            }
         hint: "The main image to show on the homepage"
-        media_library:
-          config:
-            multiple: true
-      - label: "Image 1"
-        name: "image1"
-        widget: "image"
-        required: false
-        media_library:
-          config:
-            multiple: true
-      - label: "Image 2"
-        name: "image2"
-        widget: "image"
-        required: false
-        media_library:
-          config:
-            multiple: true
-      - label: "Image 3"
-        name: "image3"
-        widget: "image"
-        required: false
-        media_library:
-          config:
-            multiple: true
-      - label: "Image 4"
-        name: "image4"
-        widget: "image"
-        required: false
-        media_library:
-          config:
-            multiple: true
+      - label: "Images"
+        name: "galleryImages"
+        widget: "list"
+        fields:
+          - { name: src, label: Image, widget: image }
+          - {
+              name: alt,
+              label: Alt text,
+              widget: string,
+              hint: Description of the image,
+            }
+      - label: "Description"
+        name: "body"
+        widget: "markdown"
+        hint: "Any text you'd like to use to describe this shoot"

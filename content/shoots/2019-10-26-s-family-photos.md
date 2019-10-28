@@ -14,4 +14,5 @@ galleryImages:
   - alt: Mother and son
     src: /img/img_0513.jpg
 ---
+
 These lovely photos were taken in Billings, MT in a beautiful corn field.
