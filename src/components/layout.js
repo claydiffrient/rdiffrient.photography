@@ -50,7 +50,7 @@ class Layout extends React.Component {
       header = (
         <h3
           style={{
-            fontFamily: `Montserrat, sans-serif`,
+            textTransform: "uppercase",
             marginTop: 0,
           }}
         >

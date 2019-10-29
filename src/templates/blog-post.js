@@ -2,6 +2,7 @@ import React from "react"
 import { Link, graphql } from "gatsby"
 
 import Layout from "../components/layout"
+import ImageViewer from "../components/image-viewer"
 import SEO from "../components/seo"
 import { rhythm, scale } from "../utils/typography"
 
@@ -10,6 +11,11 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = this.props.data.site.siteMetadata.title
     const { previous, next } = this.props.pageContext
+
+    const images = [
+      post.frontmatter.featured_image,
+      ...post.frontmatter.galleryImages,
+    ]
 
     return (
       <Layout location={this.props.location} title={siteTitle}>
@@ -23,6 +29,7 @@ class BlogPostTemplate extends React.Component {
               style={{
                 marginTop: rhythm(1),
                 marginBottom: 0,
+                fontFamily: "montserrat",
               }}
             >
               {post.frontmatter.title}
@@ -38,6 +45,9 @@ class BlogPostTemplate extends React.Component {
             </p>
           </header>
           <section dangerouslySetInnerHTML={{ __html: post.html }} />
+          <section>
+            <ImageViewer images={images} />
+          </section>
           <hr
             style={{
               marginBottom: rhythm(1),
@@ -89,12 +99,18 @@ export const pageQuery = graphql`
     }
     markdownRemark(fields: { slug: { eq: $slug } }) {
       id
-      excerpt(pruneLength: 160)
       html
       frontmatter {
+        featured_image {
+          alt
+          src
+        }
         title
+        galleryImages {
+          alt
+          src
+        }
         date(formatString: "MMMM DD, YYYY")
-        description
       }
     }
   }

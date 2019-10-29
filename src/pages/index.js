@@ -17,25 +17,31 @@ class BlogIndex extends React.Component {
         <SEO title="All posts" />
         <StackGrid monitorImagesLoaded={true} columnWidth={150}>
           {shoots.map(({ node }) => (
-            <img
-              alt={node.frontmatter.title}
-              key={node.fields.slug + "0"}
-              src={node.frontmatter.thumbnail}
-            />
+            <Link to={node.fields.slug}>
+              <img
+                alt={node.frontmatter.title}
+                key={node.fields.slug + "0"}
+                src={node.frontmatter.featured_image.src}
+              />
+            </Link>
           ))}
           {shoots.reverse().map(({ node }) => (
-            <img
-              alt={node.frontmatter.title}
-              key={node.fields.slug + "1"}
-              src={node.frontmatter.thumbnail}
-            />
+            <Link to={node.fields.slug}>
+              <img
+                alt={node.frontmatter.title}
+                key={node.fields.slug + "1"}
+                src={node.frontmatter.featured_image.src}
+              />
+            </Link>
           ))}
           {shoots.map(({ node }) => (
-            <img
-              alt={node.frontmatter.title}
-              key={node.fields.slug + "2"}
-              src={node.frontmatter.thumbnail}
-            />
+            <Link to={node.fields.slug}>
+              <img
+                alt={node.frontmatter.title}
+                key={node.fields.slug + "2"}
+                src={node.frontmatter.featured_image.src}
+              />
+            </Link>
           ))}
         </StackGrid>
       </Layout>
@@ -59,7 +65,10 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            thumbnail
+            featured_image {
+              alt
+              src
+            }
             title
           }
         }
