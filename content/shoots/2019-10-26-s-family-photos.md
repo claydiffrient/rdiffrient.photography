@@ -29,6 +29,10 @@ galleryImages:
     src: /img/38932962_2128544507361466_5195071147070193664_n-1-.jpg
   - alt: Cute boy smiling.
     src: /img/38924369_595010817567923_2740774856718024704_n-1-.jpg
+  - alt: Baby girl dressed in pink sitting in fall leaves.
+    src: /img/img_5844.jpg
+  - alt: Baby girl dressed in pink sitting in fall leaves.
+    src: /img/img_5891.jpg
 ---
 
 These lovely photos were taken in Billings, MT in a beautiful corn field.
