@@ -12,34 +12,17 @@ class BlogIndex extends React.Component {
     const siteTitle = data.site.siteMetadata.title
     const shoots = data.allMarkdownRemark.edges
 
+    const WIDTH = 150
+
     return (
       <Layout location={this.props.location} title={siteTitle}>
         <SEO title="All posts" />
-        <StackGrid monitorImagesLoaded={true} columnWidth={150}>
+        <StackGrid monitorImagesLoaded={true} columnWidth={WIDTH}>
           {shoots.map(({ node }) => (
-            <Link to={node.fields.slug}>
+            <Link to={node.fields.slug} key={node.internal.contentDigest}>
               <img
                 alt={node.frontmatter.title}
-                key={node.fields.slug + "0"}
-                src={node.frontmatter.featured_image.src}
-              />
-            </Link>
-          ))}
-          {shoots.reverse().map(({ node }) => (
-            <Link to={node.fields.slug}>
-              <img
-                alt={node.frontmatter.title}
-                key={node.fields.slug + "1"}
-                src={node.frontmatter.featured_image.src}
-              />
-            </Link>
-          ))}
-          {shoots.map(({ node }) => (
-            <Link to={node.fields.slug}>
-              <img
-                alt={node.frontmatter.title}
-                key={node.fields.slug + "2"}
-                src={node.frontmatter.featured_image.src}
+                src={`${node.frontmatter.featured_image.src}?nf_resize=fit&w=${WIDTH}`}
               />
             </Link>
           ))}
@@ -63,6 +46,9 @@ export const pageQuery = graphql`
         node {
           fields {
             slug
+          }
+          internal {
+            contentDigest
           }
           frontmatter {
             featured_image {
