@@ -11,23 +11,18 @@ fields:
 - type: list
   name: category
   label: category
-- type: field_group
-  name: featured_image
-  label: featured_image
-  fields:
-  - type: text
-    name: alt
-    label: alt
-  - type: file
-    name: src
-    label: src
-- type: field_group_list
-  name: galleryImages
-  label: galleryImages
-  fields:
-  - type: text
-    name: alt
-    label: alt
-  - type: file
-    name: src
-    label: src
+  config:
+    use_select: false
+    source:
+      type: simple
+- name: gallery_images
+  type: image_gallery
+  config: {}
+  label: Gallery Images
+  description: Images you want to associate with this shoot.
+- name: featured_image
+  type: file
+  config:
+    maxSize: 250
+  label: Featured Image
+  description: The image you want to show first, and on the home page gallery.
