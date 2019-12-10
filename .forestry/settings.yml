@@ -9,10 +9,10 @@ sections:
   label: Shoots
   create: documents
   match: "**/*"
-upload_dir: uploads
-public_path: "/uploads"
+upload_dir: static/img
+public_path: https://rdiffrient.photography/img
 front_matter_path: ''
-use_front_matter_path: false
+use_front_matter_path: 
 file_template: ":filename:"
 build:
   preview_output_directory: public
