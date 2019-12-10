@@ -1,0 +1,33 @@
+---
+label: Shoot
+hide_body: false
+fields:
+- type: text
+  name: title
+  label: title
+- type: datetime
+  name: date
+  label: date
+- type: list
+  name: category
+  label: category
+- type: field_group
+  name: featured_image
+  label: featured_image
+  fields:
+  - type: text
+    name: alt
+    label: alt
+  - type: file
+    name: src
+    label: src
+- type: field_group_list
+  name: galleryImages
+  label: galleryImages
+  fields:
+  - type: text
+    name: alt
+    label: alt
+  - type: file
+    name: src
+    label: src
