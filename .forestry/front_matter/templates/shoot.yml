@@ -26,3 +26,5 @@ fields:
     maxSize: 250
   label: Featured Image
   description: The image you want to show first, and on the home page gallery.
+pages:
+- content/shoots/testing.md
